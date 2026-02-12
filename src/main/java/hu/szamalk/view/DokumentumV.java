@@ -1,7 +1,6 @@
 package hu.szamalk.view;
 
 import hu.szamalk.model.Dok;
-
 import java.util.Set;
 
 public class DokumentumV {
