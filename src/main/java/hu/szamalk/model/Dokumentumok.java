@@ -19,7 +19,7 @@ public final class Dokumentumok {
     }
 
     public Dok getDok(int azon){
-        Dok dokum = doks.stream().filter(x -> x.getAzon() == azon).findFirst().get();
+        Dok dokum = doks.stream().filter(x -> x.getAzon() == azon).findFirst().orElse(null);
         return dokum;
     }
 
