@@ -21,4 +21,11 @@ public class BirHat extends Dok{
         BirHat birHat = (BirHat) o;
         return ugyszam == birHat.ugyszam;
     }
+
+    @Override
+    public String toString() {
+        return "BirHat{" +
+                "ugyszam=" + ugyszam +
+                "} " + super.toString();
+    }
 }

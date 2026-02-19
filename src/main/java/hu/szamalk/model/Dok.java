@@ -1,9 +1,10 @@
 package hu.szamalk.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-public abstract class Dok {
+public abstract class Dok implements Serializable {
     private long azon;
     private String cim;
     private Timestamp letrehoz;
@@ -36,5 +37,14 @@ public abstract class Dok {
     @Override
     public int hashCode() {
         return Objects.hashCode(azon);
+    }
+
+    @Override
+    public String toString() {
+        return "Dok{" +
+                "azon=" + azon +
+                ", cim='" + cim + '\'' +
+                ", letrehoz=" + letrehoz +
+                '}';
     }
 }

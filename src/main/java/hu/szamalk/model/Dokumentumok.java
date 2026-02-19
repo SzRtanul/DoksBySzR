@@ -5,12 +5,12 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class Dokumentumok {
+public final class Dokumentumok implements Serializable {
     Set<Dok> doks;
     String file;
 
     public Dokumentumok(){
-        file = "/doks.f";
+        file = "doks.f";
         doks = new HashSet<>();
     }
 
@@ -33,8 +33,11 @@ public final class Dokumentumok {
 
     public String save(){
         try{
-            URL resourceUrl = getClass().getResource(file);
-            File f = new File(resourceUrl.toURI());
+            //URL resourceUrl = getClass().getResource("/");
+            File f = new File(file);
+            if(!f.exists()){
+                f.createNewFile();
+            }
             OutputStream fos = new FileOutputStream(f);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(doks);
@@ -47,7 +50,8 @@ public final class Dokumentumok {
 
     public String load(){
         try{
-            InputStream fis = getClass().getResourceAsStream(file);
+            File f = new File(file);
+            InputStream fis = new FileInputStream(f);
             ObjectInputStream ois = new ObjectInputStream(fis);
             doks = (HashSet<Dok>)(ois.readObject());
             return "";

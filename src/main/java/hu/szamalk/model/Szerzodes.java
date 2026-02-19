@@ -21,4 +21,11 @@ public class Szerzodes extends Dok{
         Szerzodes szerzodes = (Szerzodes) o;
         return szerzodoFelekSzama == szerzodes.szerzodoFelekSzama;
     }
+
+    @Override
+    public String toString() {
+        return "Szerzodes{" +
+                "szerzodoFelekSzama=" + szerzodoFelekSzama +
+                '}'+super.toString();
+    }
 }
